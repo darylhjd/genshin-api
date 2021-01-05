@@ -1,4 +1,4 @@
-# genshinapi
+# genshin-api
 
 Go wrapper around a Genshin Impact API.
 

@@ -10,7 +10,7 @@ package main
 
 import (
 	"fmt"
-	genshinapi "github.com/darylhjd/genshinapi"
+	genshinapi "github.com/darylhjd/genshin-api"
 )
 
 func main() {

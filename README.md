@@ -6,30 +6,31 @@ API can be found [here](https://api.genshin.dev/). GitHub repo for API is [here]
 
 Feel free to contribute to this project!
 
-## Example
+## Examples
 
 ```golang
 package main
 
 import (
 	"fmt"
+	
 	genshinapi "github.com/darylhjd/genshin-api"
 )
 
 func main() {
-	// Get data types provided by API: artifacts, characters, etc...
+	// Get list of data types provided by API: artifacts, characters, etc...
 	dataTypes, _ := genshinapi.GetDataTypes()
 	fmt.Println(dataTypes)
 
-	// Get list of characters
+	// Get list of character names
 	characters, _ := genshinapi.GetCharacters()
 	fmt.Println(characters)
 }
 ```
 
-The full list of available functions is available in helpers.go.
+The full list of available functions is available in `helpers.go`.
 
-The wrapper also provides a wildcard function, `GetCustomBody`, for your own implementation.
+The wrapper also provides a wildcard function, `GetCustomBody`, for your own requests.
 
 ```golang
 package main
@@ -47,6 +48,7 @@ func main() {
 		"characters",
 		"amber",
 	}
+	// Function will parse URL for you
 	result, _ := genshinapi.GetCustomBody(urlArgs...)
 
 	var character genshinapi.Character

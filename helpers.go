@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 )
 
+type GetDataNameListFnType func() ([]string, error)
+
 // GetDataTypes : Get data types provided by the API
 func GetDataTypes() ([]string, error) {
 	bytes, err := GetCustomBody()
@@ -19,7 +21,7 @@ func GetDataTypes() ([]string, error) {
 	return dts.Types, nil
 }
 
-// GetArtifacts : Get list of artifacts in Genshin Impact
+// GetArtifacts : Get list of artifact names in Genshin Impact
 func GetArtifacts() ([]string, error) {
 	return genshinAPIGetDataList(ArtifactsDType)
 }
@@ -44,7 +46,7 @@ func GetArtifact(name string) (*Artifact, error) {
 	return &artifact, nil
 }
 
-// GetCharacters : Get list of characters in Genshin Impact
+// GetCharacters : Get list of character names in Genshin Impact
 func GetCharacters() ([]string, error) {
 	return genshinAPIGetDataList(CharactersDType)
 }
@@ -69,7 +71,7 @@ func GetCharacter(name string) (*Character, error) {
 	return &character, nil
 }
 
-// GetDomains : Get list of domains in Genshin Impact
+// GetDomains : Get list of domain names in Genshin Impact
 func GetDomains() ([]string, error) {
 	return genshinAPIGetDataList(DomainsDType)
 }
@@ -94,7 +96,7 @@ func GetDomain(name string) (*Domain, error) {
 	return &domain, nil
 }
 
-// GetElements : Get list of elements in Genshin Impact
+// GetElements : Get list of element names in Genshin Impact
 func GetElements() ([]string, error) {
 	return genshinAPIGetDataList(ElementsDType)
 }
@@ -119,7 +121,7 @@ func GetElement(name string) (*Element, error) {
 	return &element, nil
 }
 
-// GetNations : Get list of nations in Genshin Impact
+// GetNations : Get list of nation names in Genshin Impact
 func GetNations() ([]string, error) {
 	return genshinAPIGetDataList(NationsDType)
 }
@@ -144,7 +146,7 @@ func GetNation(name string) (*Nation, error) {
 	return &nation, nil
 }
 
-// GetWeapons : Get list of weapons in Genshin Impact
+// GetWeapons : Get list of weapon names in Genshin Impact
 func GetWeapons() ([]string, error) {
 	return genshinAPIGetDataList(WeaponsDType)
 }

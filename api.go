@@ -14,14 +14,14 @@ import (
 )
 
 const (
-	baseAPI = "https://api.genshin.dev/"
+	BaseAPI = "https://api.genshin.dev/"
 )
 
 // GetCustomBody : Function to get data from API
 // ext: Slice of URL arguments for API.
 // Function will concatenate with backslashes.
 func GetCustomBody(ext ...string) ([]byte, error) {
-	reqUrl := fmt.Sprintf("%s%s", baseAPI, strings.Join(ext, "/"))
+	reqUrl := fmt.Sprintf("%s%s", BaseAPI, strings.Join(ext, "/"))
 	resp, err := http.Get(reqUrl)
 	if err != nil {
 		return nil, err

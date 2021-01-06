@@ -4,6 +4,8 @@ Go wrapper around a Genshin Impact API.
 
 API can be found [here](https://api.genshin.dev/). GitHub repo for API is [here](https://github.com/genshindev/api).
 
+Feel free to contribute to this project!
+
 ## Example
 
 ```golang

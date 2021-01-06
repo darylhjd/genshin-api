@@ -1,4 +1,4 @@
-# genshinapi
+# genshin-api
 
 Go wrapper around a Genshin Impact API.
 
@@ -10,7 +10,7 @@ package main
 
 import (
 	"fmt"
-	genshinapi "github.com/darylhjd/genshinapi"
+	genshinapi "github.com/darylhjd/genshin-api"
 )
 
 func main() {

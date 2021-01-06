@@ -18,7 +18,7 @@ const (
 )
 
 // genshinAPIGetBody : Function to get data from API
-// ext: Comma separated arguments for API URL.
+// ext: Slice of URL arguments for API.
 // Function will concatenate with backslashes.
 func genshinAPIGetBody(ext ...string) ([]byte, error) {
 	reqUrl := fmt.Sprintf("%s%s", BaseAPI, strings.Join(ext, "/"))

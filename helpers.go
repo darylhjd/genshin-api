@@ -6,7 +6,7 @@ import (
 
 // GetDataTypes : Get data types provided by the API
 func GetDataTypes() ([]string, error) {
-	bytes, err := genshinAPIGetBody()
+	bytes, err := GetCustomBody()
 	if err != nil {
 		return nil, err
 	}
@@ -31,7 +31,7 @@ func GetArtifact(name string) (*Artifact, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func GetCharacter(name string) (*Character, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func GetDomain(name string) (*Domain, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +106,7 @@ func GetElement(name string) (*Element, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}
@@ -131,7 +131,7 @@ func GetNation(name string) (*Nation, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}
@@ -156,7 +156,7 @@ func GetWeapon(name string) (*Weapon, error) {
 		name,
 	}
 
-	bytes, err := genshinAPIGetBody(reqBody...)
+	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
 		return nil, err
 	}

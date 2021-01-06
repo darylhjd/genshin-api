@@ -4,14 +4,14 @@ import (
 	"testing"
 )
 
-// Test genshinAPIGetBody
+// Test GetCustomBody
 func TestGenshinAPIGetBody(t *testing.T) {
 	// Test valid URL arguments
 	ext := []string{
 		CharactersDType,
 		"amber",
 	}
-	_, err := genshinAPIGetBody(ext...)
+	_, err := GetCustomBody(ext...)
 	if err != nil {
 		t.Error("Testing valid URL arguments failed")
 	} else {
@@ -19,7 +19,7 @@ func TestGenshinAPIGetBody(t *testing.T) {
 	}
 
 	// Test invalid extension arguments
-	_, err = genshinAPIGetBody("//////////")
+	_, err = GetCustomBody("//////////")
 	if err == nil {
 		t.Error("Testing invalid URL failed")
 	} else {

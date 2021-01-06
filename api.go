@@ -14,14 +14,14 @@ import (
 )
 
 const (
-	BaseAPI = "https://api.genshin.dev/"
+	baseAPI = "https://api.genshin.dev/"
 )
 
-// genshinAPIGetBody : Function to get data from API
+// GetCustomBody : Function to get data from API
 // ext: Slice of URL arguments for API.
 // Function will concatenate with backslashes.
-func genshinAPIGetBody(ext ...string) ([]byte, error) {
-	reqUrl := fmt.Sprintf("%s%s", BaseAPI, strings.Join(ext, "/"))
+func GetCustomBody(ext ...string) ([]byte, error) {
+	reqUrl := fmt.Sprintf("%s%s", baseAPI, strings.Join(ext, "/"))
 	resp, err := http.Get(reqUrl)
 	if err != nil {
 		return nil, err
@@ -44,7 +44,7 @@ func genshinAPIGetBody(ext ...string) ([]byte, error) {
 
 // genshinAPIGetDataList : Get a list of items of a particular data type
 func genshinAPIGetDataList(t string) ([]string, error) {
-	resp, err := genshinAPIGetBody(t)
+	resp, err := GetCustomBody(t)
 	if err != nil {
 		return nil, err
 	}

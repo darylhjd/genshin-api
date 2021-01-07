@@ -27,7 +27,7 @@ func GetCustomBody(ext ...string) ([]byte, error) {
 		return nil, err
 	}
 	if resp.StatusCode != 200 {
-		return nil, errors.New("GenshinAPI returned non-200 status code")
+		return nil, errors.New("request returned non-200 status code")
 	}
 	defer func() {
 		_ = resp.Body.Close()
@@ -37,6 +37,13 @@ func GetCustomBody(ext ...string) ([]byte, error) {
 	byteArr, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
+	}
+
+	// Check error
+	var apierror APIError
+	err = json.Unmarshal(byteArr, &apierror)
+	if apierror.Error != nil {
+		return nil, errors.New(*apierror.Error)
 	}
 
 	return byteArr, nil

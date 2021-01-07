@@ -172,3 +172,55 @@ func TestGetWeapon(t *testing.T) {
 		t.Log("Testing GetWeapon with invalid input passed")
 	}
 }
+
+func TestGetImage(t *testing.T) {
+	// Test with valid input
+	_, err := GetImage(ArtifactsDType, "adventurer", ArtifactPhoto)
+	if err != nil {
+		t.Error("Testing GetImage with valid input failed", err)
+	} else {
+		t.Log("Testing GetImage with valid input passed")
+	}
+	_, err = GetImage(CharactersDType, "amber", CharacterPortrait)
+	if err != nil {
+		t.Error("Testing GetImage with valid input failed", err)
+	} else {
+		t.Log("Testing GetImage with valid input passed")
+	}
+	_, err = GetImage(ElementsDType, "anemo", ElementIcon)
+	if err != nil {
+		t.Error("Testing GetImage with valid input failed", err)
+	} else {
+		t.Log("Testing GetImage with valid input passed")
+	}
+	_, err = GetImage(WeaponsDType, "rust", WeaponIcon)
+	if err != nil {
+		t.Error("Testing GetImage with valid input failed", err)
+	} else {
+		t.Log("Testing GetImage with valid input passed")
+	}
+
+	// Test GetImage with invalid data type name
+	_, err = GetImage(CharactersDType, "no-such-char", CharacterIcon)
+	if err == nil {
+		t.Error("Testing GetImage with invalid data type name failed")
+	} else {
+		t.Log("Testing GetImage with invalid data type name passed")
+	}
+
+	// Test GetImage with invalid image type
+	_, err = GetImage(ArtifactsDType, "adventurer", "wrongimage")
+	if err == nil {
+		t.Error("Testing GetImage with invalid image type failed")
+	} else {
+		t.Log("Testing GetImage with invalid image type passed")
+	}
+
+	// Test GetImage with invalid data type
+	_, err = GetImage("wrongtype", "adventurer", ArtifactPhoto)
+	if err == nil {
+		t.Error("Testing GetImage with invalid data type failed")
+	} else {
+		t.Log("Testing GetImage with invalid data type passed")
+	}
+}

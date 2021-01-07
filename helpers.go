@@ -170,3 +170,9 @@ func GetWeapon(name string) (*Weapon, error) {
 	}
 	return &weapon, nil
 }
+
+// GetImage : Return a byte array of image data for a data type entry
+// Validity of types is not guaranteed.
+func GetImage(dtype, name, imagetype string) ([]byte, error) {
+	return GetCustomBody(dtype, name, imagetype)
+}

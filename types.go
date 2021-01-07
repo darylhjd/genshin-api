@@ -1,6 +1,7 @@
 package genshinapi
 
 const (
+	// Data types provided by the API
 	ArtifactsDType  = "artifacts"
 	CharactersDType = "characters"
 	DomainsDType    = "domains"
@@ -8,6 +9,20 @@ const (
 	NationsDType    = "nations"
 	WeaponsDType    = "weapons"
 )
+
+const (
+	ArtifactPhoto     = "flower-of-life"
+	CharacterIcon     = "icon"
+	CharacterPortrait = "portrait"
+	ElementIcon       = "icon"
+	WeaponIcon        = "icon"
+)
+
+type APIError struct {
+	Error           *string   `json:"error"`
+	AvailableTypes  []string `json:"availableTypes,omitempty"`  // For wrong data type
+	AvailableImages []string `json:"availableImages,omitempty"` // For wrong image type
+}
 
 type DataTypes struct {
 	Types []string `json:"types"`

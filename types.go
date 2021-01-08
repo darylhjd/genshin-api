@@ -11,6 +11,7 @@ const (
 )
 
 const (
+	// Asset types
 	ArtifactPhoto     = "flower-of-life"
 	CharacterIcon     = "icon"
 	CharacterPortrait = "portrait"

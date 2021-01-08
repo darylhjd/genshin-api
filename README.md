@@ -45,7 +45,9 @@ import (
 func main() {
 	// Get data on characters/amber
 	urlArgs := []string{
-		"characters",
+		// Package provides a few helper strings
+		// You can find them in types.go
+		genshinapi.CharactersDType, 
 		"amber",
 	}
 	// Function will parse URL for you
@@ -54,5 +56,10 @@ func main() {
 	var character genshinapi.Character
 	_ = json.Unmarshal(result, &character)
 	fmt.Println(character)
+	
+	// Get portrait image of Amber
+	urlArgs = append(urlArgs, genshinapi.CharacterPortrait)
+	imagedata, _ := genshinapi.GetCustomBody(urlArgs...)
+	_ = imagedata
 }
 ```

@@ -1,6 +1,8 @@
 # genshin-api
 
-Golang wrapper for a fan-made Genshin Impact API. GoDocs [here](https://pkg.go.dev/github.com/darylhjd/genshin-api).
+[![Go Reference](https://pkg.go.dev/badge/github.com/darylhjd/genshin-api.svg)](https://pkg.go.dev/github.com/darylhjd/genshin-api)
+
+Golang wrapper for a fan-made Genshin Impact API.
 
 To install, do `go get -u github.com/darylhjd/genshin-api`.
 

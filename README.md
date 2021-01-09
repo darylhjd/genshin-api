@@ -1,6 +1,8 @@
 # genshin-api
 
-Golang wrapper for a fan-made Genshin Impact API. An example of how to use this API can be found in [this](https://github.com/darylhjd/go-genshin-impact-tele-bot) repository.
+Golang wrapper for a fan-made Genshin Impact API. GoDocs [here](https://pkg.go.dev/github.com/darylhjd/genshin-api).
+
+To install, do `go get -u github.com/darylhjd/genshin-api`.
 
 API can be found [here](https://api.genshin.dev/). GitHub repo for API is [here](https://github.com/genshindev/api).
 

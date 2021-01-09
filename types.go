@@ -20,7 +20,7 @@ const (
 )
 
 type APIError struct {
-	Error           *string   `json:"error"`
+	Error           *string  `json:"error"`
 	AvailableTypes  []string `json:"availableTypes,omitempty"`  // For wrong data type
 	AvailableImages []string `json:"availableImages,omitempty"` // For wrong image type
 }
@@ -29,11 +29,19 @@ type DataTypes struct {
 	Types []string `json:"types"`
 }
 
+type DataEntry interface {
+	EntryName() string
+}
+
 type Artifact struct {
 	Name           string `json:"name"`
 	MaxRarity      int    `json:"max_rarity"`
 	TwoPieceBonus  string `json:"2-piece_bonus"`
 	FourPieceBonus string `json:"4-piece_bonus"`
+}
+
+func (a *Artifact) EntryName() string {
+	return a.Name
 }
 
 type Character struct {
@@ -52,6 +60,10 @@ type Character struct {
 	SkillTalents   []Talent `json:"skillTalents"`
 	PassiveTalents []Talent `json:"passiveTalents"`
 	Constellations []Talent `json:"constellations"`
+}
+
+func (c *Character) EntryName() string {
+	return c.Name
 }
 
 type Talent struct {
@@ -75,6 +87,10 @@ type Domain struct {
 	Requirements        []RequirementLevel   `json:"requirements"`
 	RecommendedElements []RecommendedElement `json:"recommendedElements"`
 	Rewards             []Reward             `json:"rewards"`
+}
+
+func (d *Domain) EntryName() string {
+	return d.Name
 }
 
 type RequirementLevel struct {
@@ -110,11 +126,19 @@ type Element struct {
 	Name string `json:"name"`
 }
 
+func (e *Element) EntryName() string {
+	return e.Name
+}
+
 type Nation struct {
 	Name              string `json:"name"`
 	Element           string `json:"element"`
 	Archon            string `json:"archon"`
 	ControllingEntity string `json:"controllingEntity"`
+}
+
+func (n *Nation) EntryName() string {
+	return n.Name
 }
 
 type Weapon struct {
@@ -126,4 +150,8 @@ type Weapon struct {
 	PassiveName string `json:"passiveName"`
 	PassiveDesc string `json:"passiveDesc"`
 	Location    string `json:"location"`
+}
+
+func (w *Weapon) EntryName() string {
+	return w.Name
 }

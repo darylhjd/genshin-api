@@ -6,6 +6,7 @@ const (
 	CharactersDType = "characters"
 	DomainsDType    = "domains"
 	ElementsDType   = "elements"
+	MaterialsDTpye  = "materials"
 	NationsDType    = "nations"
 	WeaponsDType    = "weapons"
 )

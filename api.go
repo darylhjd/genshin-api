@@ -48,18 +48,3 @@ func GetCustomBody(ext ...string) ([]byte, error) {
 
 	return byteArr, nil
 }
-
-// genshinAPIGetDataList : Get a list of items of a particular data type
-func genshinAPIGetDataList(t string) ([]string, error) {
-	resp, err := GetCustomBody(t)
-	if err != nil {
-		return nil, err
-	}
-
-	var list []string
-	err = json.Unmarshal(resp, &list)
-	if err != nil {
-		return nil, err
-	}
-	return list, nil
-}

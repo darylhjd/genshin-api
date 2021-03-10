@@ -4,7 +4,20 @@ import (
 	"encoding/json"
 )
 
-type GetDataNameListFnType func() ([]string, error)
+// genshinAPIGetDataList : Get a list of items of a particular data type
+func genshinAPIGetDataList(t string) ([]string, error) {
+	resp, err := GetCustomBody(t)
+	if err != nil {
+		return nil, err
+	}
+
+	var list []string
+	err = json.Unmarshal(resp, &list)
+	if err != nil {
+		return nil, err
+	}
+	return list, nil
+}
 
 // GetDataTypes : Get data types provided by the API
 func GetDataTypes() ([]string, error) {
@@ -27,23 +40,23 @@ func GetArtifacts() ([]string, error) {
 }
 
 // GetArtifact : Return a pointer to an Artifact struct containing info on an artifact
-func GetArtifact(name string) (*Artifact, error) {
+func GetArtifact(name string) (Artifact, error) {
 	reqBody := []string{
 		ArtifactsDType,
 		name,
 	}
 
+	var artifact Artifact
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return artifact, err
 	}
 
-	var artifact Artifact
 	err = json.Unmarshal(bytes, &artifact)
 	if err != nil {
-		return nil, err
+		return artifact, err
 	}
-	return &artifact, nil
+	return artifact, nil
 }
 
 // GetCharacters : Get list of character names in Genshin Impact
@@ -52,23 +65,23 @@ func GetCharacters() ([]string, error) {
 }
 
 // GetCharacter : Return a pointer to a Character struct containing info on a character
-func GetCharacter(name string) (*Character, error) {
+func GetCharacter(name string) (Character, error) {
 	reqBody := []string{
 		CharactersDType,
 		name,
 	}
 
+	var character Character
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return character, err
 	}
 
-	var character Character
 	err = json.Unmarshal(bytes, &character)
 	if err != nil {
-		return nil, err
+		return character, err
 	}
-	return &character, nil
+	return character, nil
 }
 
 // GetDomains : Get list of domain names in Genshin Impact
@@ -77,23 +90,23 @@ func GetDomains() ([]string, error) {
 }
 
 // GetDomain : Return a pointer to a Domain struct containing info on a domain
-func GetDomain(name string) (*Domain, error) {
+func GetDomain(name string) (Domain, error) {
 	reqBody := []string{
 		DomainsDType,
 		name,
 	}
 
+	var domain Domain
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return domain, err
 	}
 
-	var domain Domain
 	err = json.Unmarshal(bytes, &domain)
 	if err != nil {
-		return nil, err
+		return domain, err
 	}
-	return &domain, nil
+	return domain, nil
 }
 
 // GetElements : Get list of element names in Genshin Impact
@@ -102,23 +115,23 @@ func GetElements() ([]string, error) {
 }
 
 // GetElement : Return a pointer to an Element struct containing info on an element
-func GetElement(name string) (*Element, error) {
+func GetElement(name string) (Element, error) {
 	reqBody := []string{
 		ElementsDType,
 		name,
 	}
 
+	var element Element
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return element, err
 	}
 
-	var element Element
 	err = json.Unmarshal(bytes, &element)
 	if err != nil {
-		return nil, err
+		return element, err
 	}
-	return &element, nil
+	return element, nil
 }
 
 // GetNations : Get list of nation names in Genshin Impact
@@ -127,23 +140,23 @@ func GetNations() ([]string, error) {
 }
 
 // GetNation : Return a pointer to a Nation struct containing info on a nation
-func GetNation(name string) (*Nation, error) {
+func GetNation(name string) (Nation, error) {
 	reqBody := []string{
 		NationsDType,
 		name,
 	}
 
+	var nation Nation
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return nation, err
 	}
 
-	var nation Nation
 	err = json.Unmarshal(bytes, &nation)
 	if err != nil {
-		return nil, err
+		return nation, err
 	}
-	return &nation, nil
+	return nation, nil
 }
 
 // GetWeapons : Get list of weapon names in Genshin Impact
@@ -152,23 +165,23 @@ func GetWeapons() ([]string, error) {
 }
 
 // GetWeapon : Return a pointer to a Weapon struct containing info on a weapon
-func GetWeapon(name string) (*Weapon, error) {
+func GetWeapon(name string) (Weapon, error) {
 	reqBody := []string{
 		WeaponsDType,
 		name,
 	}
 
+	var weapon Weapon
 	bytes, err := GetCustomBody(reqBody...)
 	if err != nil {
-		return nil, err
+		return weapon, err
 	}
 
-	var weapon Weapon
 	err = json.Unmarshal(bytes, &weapon)
 	if err != nil {
-		return nil, err
+		return weapon, err
 	}
-	return &weapon, nil
+	return weapon, nil
 }
 
 // GetImage : Return a byte array of image data for a data type entry

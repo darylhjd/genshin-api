@@ -2,6 +2,31 @@ package genshinapi
 
 import "testing"
 
+// Test genshinAPIGetDataList
+func TestGenshinAPIGetDataList(t *testing.T) {
+	// Test with proper data type
+	_, err := genshinAPIGetDataList(ArtifactsDType)
+	if err != nil {
+		t.Error("Testing valid data type failed. Expected nil, got:", err)
+	} else {
+		t.Log("Testing valid data type passed.")
+	}
+
+	// Test with improper data type
+	_, err = genshinAPIGetDataList("wrong")
+	if err == nil {
+		t.Error("Testing invalid data type failed. Expected error, got nil.")
+	} else {
+		t.Log("Testing invalid data type passed.")
+	}
+	_, err = genshinAPIGetDataList("///////")
+	if err == nil {
+		t.Error("Testing invalid data type failed. Expected error, got nil.")
+	} else {
+		t.Log("Testing invalid data type passed.")
+	}
+}
+
 func TestGetTypes(t *testing.T) {
 	_, err := GetDataTypes()
 	if err != nil {

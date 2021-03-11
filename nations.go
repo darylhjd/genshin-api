@@ -4,7 +4,7 @@ import "encoding/json"
 
 const (
 	// API DataType name
-	NationsDType    = "nations"
+	NationsDType = "nations"
 	// Assets
 	// -- There are no assets for Nations
 )

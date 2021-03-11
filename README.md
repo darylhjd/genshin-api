@@ -8,7 +8,7 @@ To install, do `go get -u github.com/darylhjd/genshin-api`.
 
 API can be found [here](https://api.genshin.dev/). GitHub repo for API is [here](https://github.com/genshindev/api).
 
-Feel free to contribute to this project! 
+Feel free to contribute to this project!
 
 ## Examples
 
@@ -32,9 +32,12 @@ func main() {
 }
 ```
 
-The full list of available functions is available in `helpers.go`.
+Refer to each DataType's corresponding file to see what helper functions are available.
+As a general rule, most DataTypes support getting the full list of item names as well as
+a particular DataEntry of that type.
 
-The wrapper also provides a wildcard function, `GetCustomBody`, for your own requests.
+This library provides a wildcard function, `GetCustomBody`, for your own requests. You can find
+this function in `api.go`.
 
 ```golang
 package main
@@ -50,7 +53,6 @@ func main() {
 	// Get data on characters/amber
 	urlArgs := []string{
 		// Package provides a few helper strings
-		// You can find them in types.go
 		genshinapi.CharactersDType, 
 		"amber",
 	}
@@ -62,6 +64,7 @@ func main() {
 	fmt.Println(character)
 	
 	// Get portrait image of Amber
+	// The function GetImage in types.go also provides this functionality
 	urlArgs = append(urlArgs, genshinapi.CharacterPortrait)
 	imagedata, _ := genshinapi.GetCustomBody(urlArgs...)
 	_ = imagedata

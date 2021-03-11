@@ -55,12 +55,12 @@ func (d Domain) EntryName() string {
 }
 
 // --------- Helper functions
-// GetDomains : Get list of domain names in Genshin Impact
+// GetDomains : Get list of domain names.
 func GetDomains() ([]string, error) {
 	return GetDataTypeItemsList(DomainsDType)
 }
 
-// GetDomain : Return a pointer to a Domain struct containing info on a domain
+// GetDomain : Return a requested Domain struct.
 func GetDomain(name string) (Domain, error) {
 	reqBody := []string{
 		DomainsDType,

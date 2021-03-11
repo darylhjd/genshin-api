@@ -26,12 +26,12 @@ func (w Weapon) EntryName() string {
 }
 
 // --------- Helper functions
-// GetWeapons : Get list of weapon names in Genshin Impact
+// GetWeapons : Get list of weapon names.
 func GetWeapons() ([]string, error) {
 	return GetDataTypeItemsList(WeaponsDType)
 }
 
-// GetWeapon : Return a pointer to a Weapon struct containing info on a weapon
+// GetWeapon : Return a requested Weapon struct.
 func GetWeapon(name string) (Weapon, error) {
 	reqBody := []string{
 		WeaponsDType,

@@ -46,12 +46,12 @@ func (c Character) EntryName() string {
 }
 
 // --------- Helper functions
-// GetCharacters : Get list of character names in Genshin Impact
+// GetCharacters : Get list of character names.
 func GetCharacters() ([]string, error) {
 	return GetDataTypeItemsList(CharactersDType)
 }
 
-// GetCharacter : Return a pointer to a Character struct containing info on a character
+// GetCharacter : Return a requested Character struct.
 func GetCharacter(name string) (Character, error) {
 	reqBody := []string{
 		CharactersDType,

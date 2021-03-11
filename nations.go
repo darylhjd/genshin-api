@@ -22,12 +22,12 @@ func (n Nation) EntryName() string {
 }
 
 // --------- Helper functions
-// GetNations : Get list of nation names in Genshin Impact
+// GetNations : Get list of nation names.
 func GetNations() ([]string, error) {
 	return GetDataTypeItemsList(NationsDType)
 }
 
-// GetNation : Return a pointer to a Nation struct containing info on a nation
+// GetNation : Return a requested Nation struct.
 func GetNation(name string) (Nation, error) {
 	reqBody := []string{
 		NationsDType,

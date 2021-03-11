@@ -19,12 +19,12 @@ func (e Element) EntryName() string {
 }
 
 // --------- Helper functions
-// GetElements : Get list of element names in Genshin Impact
+// GetElements : Get list of element names.
 func GetElements() ([]string, error) {
 	return GetDataTypeItemsList(ElementsDType)
 }
 
-// GetElement : Return a pointer to an Element struct containing info on an element
+// GetElement : Return a requested Element struct.
 func GetElement(name string) (Element, error) {
 	reqBody := []string{
 		ElementsDType,

@@ -168,6 +168,26 @@ func TestGetMaterials(t *testing.T) {
 	}
 }
 
+// Test GetMaterial
+func TestGetMaterial(t *testing.T) {
+	// Test with valid input
+	_, err := GetMaterial(BossMaterialType)
+	if err != nil {
+		t.Log(err)
+		t.Error("Testing GetMaterial with valid input failed")
+	} else {
+		t.Log("Testing GetMaterial with valid input passed")
+	}
+
+	// Test with invalid input
+	_, err = GetMaterial("no-such-material")
+	if err == nil {
+		t.Error("Testing GetMaterial with invalid input failed")
+	} else {
+		t.Log("Testing GetMaterial with invalid input passed")
+	}
+}
+
 // --------- Nation tests
 // Test GetNations
 func TestGetNations(t *testing.T) {

@@ -27,7 +27,7 @@ func GetArtifacts() ([]string, error) {
 	return GetDataTypeItemsList(ArtifactsDType)
 }
 
-// GetArtifact : Return a pointer to an Artifact struct containing info on an artifact
+// GetArtifact : Return a requested Artifact struct.
 func GetArtifact(name string) (Artifact, error) {
 	reqBody := []string{
 		ArtifactsDType,

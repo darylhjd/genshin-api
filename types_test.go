@@ -2,7 +2,33 @@ package genshinapi
 
 import "testing"
 
-func TestGetTypes(t *testing.T) {
+// Test GetDataTypeItemsList
+func TestGetDataTypeItemsList(t *testing.T) {
+	// Test with proper data type
+	_, err := GetDataTypeItemsList(ArtifactsDType)
+	if err != nil {
+		t.Error("Testing valid data type failed. Expected nil, got:", err)
+	} else {
+		t.Log("Testing valid data type passed.")
+	}
+
+	// Test with improper data type
+	_, err = GetDataTypeItemsList("wrong")
+	if err == nil {
+		t.Error("Testing invalid data type failed. Expected error, got nil.")
+	} else {
+		t.Log("Testing invalid data type passed.")
+	}
+	_, err = GetDataTypeItemsList("///////")
+	if err == nil {
+		t.Error("Testing invalid data type failed. Expected error, got nil.")
+	} else {
+		t.Log("Testing invalid data type passed.")
+	}
+}
+
+// Test GetDataTypes
+func TestGetDataTypes(t *testing.T) {
 	_, err := GetDataTypes()
 	if err != nil {
 		t.Error("Testing GetDataTypes failed")
@@ -11,6 +37,8 @@ func TestGetTypes(t *testing.T) {
 	}
 }
 
+// --------- Artifact tests
+// Test GetArtifacts
 func TestGetArtifacts(t *testing.T) {
 	_, err := GetArtifacts()
 	if err != nil {
@@ -20,6 +48,7 @@ func TestGetArtifacts(t *testing.T) {
 	}
 }
 
+// Test GetArtifact
 func TestGetArtifact(t *testing.T) {
 	// Test with valid input
 	_, err := GetArtifact("adventurer")
@@ -38,6 +67,8 @@ func TestGetArtifact(t *testing.T) {
 	}
 }
 
+// --------- Character tests
+// Test GetCharacters
 func TestGetCharacters(t *testing.T) {
 	_, err := GetCharacters()
 	if err != nil {
@@ -47,6 +78,7 @@ func TestGetCharacters(t *testing.T) {
 	}
 }
 
+// Test GetCharacter
 func TestGetCharacter(t *testing.T) {
 	// Test with valid input
 	_, err := GetCharacter("amber")
@@ -65,6 +97,8 @@ func TestGetCharacter(t *testing.T) {
 	}
 }
 
+// --------- Domain tests
+// Test GetDomains
 func TestGetDomains(t *testing.T) {
 	_, err := GetDomains()
 	if err != nil {
@@ -74,6 +108,7 @@ func TestGetDomains(t *testing.T) {
 	}
 }
 
+// Test GetDomain
 func TestGetDomain(t *testing.T) {
 	// Test with valid input
 	_, err := GetDomain("cecilia-garden")
@@ -92,6 +127,8 @@ func TestGetDomain(t *testing.T) {
 	}
 }
 
+// --------- Element tests
+// Test GetElements
 func TestGetElements(t *testing.T) {
 	_, err := GetElements()
 	if err != nil {
@@ -101,6 +138,7 @@ func TestGetElements(t *testing.T) {
 	}
 }
 
+// Test GetElement
 func TestGetElement(t *testing.T) {
 	// Test with valid input
 	_, err := GetElement("anemo")
@@ -119,6 +157,19 @@ func TestGetElement(t *testing.T) {
 	}
 }
 
+// --------- Material tests
+// Test GetMaterials
+func TestGetMaterials(t *testing.T) {
+	_, err := GetMaterials()
+	if err != nil {
+		t.Error("Testing GetMaterials failed")
+	} else {
+		t.Log("Testing GetMaterials passed")
+	}
+}
+
+// --------- Nation tests
+// Test GetNations
 func TestGetNations(t *testing.T) {
 	_, err := GetNations()
 	if err != nil {
@@ -128,6 +179,7 @@ func TestGetNations(t *testing.T) {
 	}
 }
 
+// Test GetNation
 func TestGetNation(t *testing.T) {
 	// Test with valid input
 	_, err := GetNation("liyue")
@@ -146,6 +198,8 @@ func TestGetNation(t *testing.T) {
 	}
 }
 
+// --------- Wewapon tests
+// Test GetWeapons
 func TestGetWeapons(t *testing.T) {
 	_, err := GetWeapons()
 	if err != nil {
@@ -155,6 +209,7 @@ func TestGetWeapons(t *testing.T) {
 	}
 }
 
+// Test GetWeapon
 func TestGetWeapon(t *testing.T) {
 	// Test with valid input
 	_, err := GetWeapon("rust")
@@ -173,6 +228,7 @@ func TestGetWeapon(t *testing.T) {
 	}
 }
 
+// Test GetImage
 func TestGetImage(t *testing.T) {
 	// Test with valid input
 	_, err := GetImage(ArtifactsDType, "adventurer", ArtifactPhoto)

@@ -188,6 +188,88 @@ func TestGetMaterial(t *testing.T) {
 	}
 }
 
+// Test getting each Material type
+func TestGetBossMaterial(t *testing.T) {
+	_, err := GetBossMaterial()
+	if err != nil {
+		t.Error("Testing GetBossMaterial failed")
+	} else {
+		t.Log("Testing GetBossMaterial passed")
+	}
+}
+
+func TestGetCharacterAscensionMaterial(t *testing.T) {
+	_, err := GetCharacterAscensionMaterial()
+	if err != nil {
+		t.Error("Testing GetCharacterAscensionMaterial failed")
+	} else {
+		t.Log("Testing GetCharacterAscensionMaterial passed")
+	}
+}
+
+func TestGetCharacterExperienceMaterial(t *testing.T) {
+	_, err := GetCharacterExperienceMaterial()
+	if err != nil {
+		t.Error("Testing GetCharacterExperienceMaterial failed")
+	} else {
+		t.Log("Testing GetCharacterExperienceMaterial passed")
+	}
+}
+
+func TestGetCommonAscensionMaterial(t *testing.T) {
+	_, err := GetCommonAscensionMaterial()
+	if err != nil {
+		t.Error("Testing GetCommonAscensionMaterial failed")
+	} else {
+		t.Log("Testing GetCommonAscensionMaterial passed")
+	}
+}
+
+func TestGetLocalSpecialtiesMaterial(t *testing.T) {
+	_, err := GetLocalSpecialtiesMaterial()
+	if err != nil {
+		t.Error("Testing GetLocalSpecialtiesMaterial failed")
+	} else {
+		t.Log("Testing GetLocalSpecialtiesMaterial passed")
+	}
+}
+
+func TestGetTalentBookMaterial(t *testing.T) {
+	_, err := GetTalentBookMaterial()
+	if err != nil {
+		t.Error("Testing GetTalentBookMaterial failed")
+	} else {
+		t.Log("Testing GetTalentBookMaterial passed")
+	}
+}
+
+func TestGetTalentBossMaterial(t *testing.T) {
+	_, err := GetTalentBossMaterial()
+	if err != nil {
+		t.Error("Testing GetTalentBossMaterial failed")
+	} else {
+		t.Log("Testing GetTalentBossMaterial passed")
+	}
+}
+
+func TestGetWeaponAscensionMaterial(t *testing.T) {
+	_, err := GetWeaponAscensionMaterial()
+	if err != nil {
+		t.Error("Testing GetWeaponAscensionMaterial failed")
+	} else {
+		t.Log("Testing GetWeaponAscensionMaterial passed")
+	}
+}
+
+func TestGetWeaponExperienceMaterial(t *testing.T) {
+	_, err := GetWeaponExperienceMaterial()
+	if err != nil {
+		t.Error("Testing GetWeaponExperienceMaterial failed")
+	} else {
+		t.Log("Testing GetWeaponExperienceMaterial passed")
+	}
+}
+
 // --------- Nation tests
 // Test GetNations
 func TestGetNations(t *testing.T) {

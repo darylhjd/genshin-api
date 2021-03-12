@@ -1,5 +1,10 @@
 package genshinapi
 
+import (
+	"encoding/json"
+	"errors"
+)
+
 const (
 	// API DataType name
 	MaterialsDType = "materials"
@@ -562,6 +567,208 @@ func GetMaterials() ([]string, error) {
 	return GetDataTypeItemsList(MaterialsDType)
 }
 
+var materialMap = map[string]func() (Material, error){
+	BossMaterialType:                GetBossMaterial,
+	CharacterAscensionMaterialType:  GetCharacterAscensionMaterial,
+	CharacterExperienceMaterialType: GetCharacterExperienceMaterial,
+	CommonAscensionMaterialType:     GetCommonAscensionMaterial,
+	LocalSpecialtiesMaterialType:    GetLocalSpecialtiesMaterial,
+	TalentBookMaterialType:          GetTalentBookMaterial,
+	TalentBossMaterialType:          GetTalentBossMaterial,
+	WeaponAscensionMaterialType:     GetWeaponAscensionMaterial,
+	WeaponExperienceMaterialType:    GetWeaponExperienceMaterial,
+}
+
 // GetMaterial : Return a Material struct corresponding to requested MaterialType.
 func GetMaterial(mname string) (Material, error) {
+	// Get required function from the function mapper
+
+	// I originally wanted it to be implemented such that the user would have to pass
+	// an struct of Material interface into the function and it would unmarshal accordingly,
+	// but I didn't want to bring the problem further down the line, so this is what I went with.
+	fn, ok := materialMap[mname]
+	if !ok {
+		return nil, errors.New("material type does not exist")
+	}
+	return fn()
+}
+
+// GetBossMaterial : Return a BossMaterial struct.
+func GetBossMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		BossMaterialType,
+	}
+
+	var bm BossMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return bm, err
+	}
+
+	err = json.Unmarshal(bytes, &bm)
+	if err != nil {
+		return bm, err
+	}
+	return bm, nil
+}
+
+// GetCharacterAscensionMaterial : Return a CharacterAscensionMaterial struct.
+func GetCharacterAscensionMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		CharacterAscensionMaterialType,
+	}
+
+	var cam CharacterAscensionMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return cam, err
+	}
+
+	err = json.Unmarshal(bytes, &cam)
+	if err != nil {
+		return cam, err
+	}
+	return cam, nil
+}
+
+// GetCharacterExperienceMaterial : Return a CharacterExperienceMaterial struct.
+func GetCharacterExperienceMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		CharacterExperienceMaterialType,
+	}
+
+	var cem CharacterExperienceMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return cem, err
+	}
+
+	err = json.Unmarshal(bytes, &cem)
+	if err != nil {
+		return cem, err
+	}
+	return cem, nil
+}
+
+// GetCommonAscensionMaterial : Return a CommonAscensionMaterial struct
+func GetCommonAscensionMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		CommonAscensionMaterialType,
+	}
+
+	var coam CommonAscensionMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return coam, err
+	}
+
+	err = json.Unmarshal(bytes, &coam)
+	if err != nil {
+		return coam, err
+	}
+	return coam, nil
+}
+
+// GetLocalSpecialtiesMaterial : Return a LocalSpecialtiesMaterial struct
+func GetLocalSpecialtiesMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		LocalSpecialtiesMaterialType,
+	}
+
+	var lsm LocalSpecialtiesMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return lsm, err
+	}
+
+	err = json.Unmarshal(bytes, &lsm)
+	if err != nil {
+		return lsm, err
+	}
+	return lsm, nil
+}
+
+// GetTalentBookMaterial : Return a TalentBookMaterial struct
+func GetTalentBookMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		TalentBookMaterialType,
+	}
+
+	var tbookm TalentBookMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return tbookm, err
+	}
+
+	err = json.Unmarshal(bytes, &tbookm)
+	if err != nil {
+		return tbookm, err
+	}
+	return tbookm, nil
+}
+
+// GetTalentBossMaterial : Return a TalentBossMaterial struct
+func GetTalentBossMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		TalentBossMaterialType,
+	}
+
+	var tbossm TalentBossMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return tbossm, err
+	}
+
+	err = json.Unmarshal(bytes, &tbossm)
+	if err != nil {
+		return tbossm, err
+	}
+	return tbossm, nil
+}
+
+// GetWeaponAscensionMaterial : Return a WeaponAscensionMaterial struct
+func GetWeaponAscensionMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		WeaponAscensionMaterialType,
+	}
+
+	var wam WeaponAscensionMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return wam, err
+	}
+
+	err = json.Unmarshal(bytes, &wam)
+	if err != nil {
+		return wam, err
+	}
+	return wam, nil
+}
+
+// GetWeaponExperienceMaterial : Return a WeaponExperienceMaterial struct
+func GetWeaponExperienceMaterial() (Material, error) {
+	reqBody := []string{
+		MaterialsDType,
+		WeaponExperienceMaterialType,
+	}
+
+	var wem WeaponExperienceMaterial
+	bytes, err := GetCustomBody(reqBody...)
+	if err != nil {
+		return wem, err
+	}
+
+	err = json.Unmarshal(bytes, &wem)
+	if err != nil {
+		return wem, err
+	}
+	return wem, nil
 }

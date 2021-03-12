@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	WeaponsDType = "weapons"
@@ -39,14 +37,6 @@ func GetWeapon(name string) (Weapon, error) {
 	}
 
 	var weapon Weapon
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return weapon, err
-	}
-
-	err = json.Unmarshal(bytes, &weapon)
-	if err != nil {
-		return weapon, err
-	}
-	return weapon, nil
+	err := getDataAndUnmarshal(reqBody, &weapon)
+	return weapon, err
 }

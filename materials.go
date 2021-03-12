@@ -1,7 +1,6 @@
 package genshinapi
 
 import (
-	"encoding/json"
 	"errors"
 )
 
@@ -601,16 +600,8 @@ func GetBossMaterial() (Material, error) {
 	}
 
 	var bm BossMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return bm, err
-	}
-
-	err = json.Unmarshal(bytes, &bm)
-	if err != nil {
-		return bm, err
-	}
-	return bm, nil
+	err := getDataAndUnmarshal(reqBody, &bm)
+	return bm, err
 }
 
 // GetCharacterAscensionMaterial : Return a CharacterAscensionMaterial struct.
@@ -621,16 +612,8 @@ func GetCharacterAscensionMaterial() (Material, error) {
 	}
 
 	var cam CharacterAscensionMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return cam, err
-	}
-
-	err = json.Unmarshal(bytes, &cam)
-	if err != nil {
-		return cam, err
-	}
-	return cam, nil
+	err := getDataAndUnmarshal(reqBody, &cam)
+	return cam, err
 }
 
 // GetCharacterExperienceMaterial : Return a CharacterExperienceMaterial struct.
@@ -641,16 +624,8 @@ func GetCharacterExperienceMaterial() (Material, error) {
 	}
 
 	var cem CharacterExperienceMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return cem, err
-	}
-
-	err = json.Unmarshal(bytes, &cem)
-	if err != nil {
-		return cem, err
-	}
-	return cem, nil
+	err := getDataAndUnmarshal(reqBody, &cem)
+	return cem, err
 }
 
 // GetCommonAscensionMaterial : Return a CommonAscensionMaterial struct
@@ -661,16 +636,8 @@ func GetCommonAscensionMaterial() (Material, error) {
 	}
 
 	var coam CommonAscensionMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return coam, err
-	}
-
-	err = json.Unmarshal(bytes, &coam)
-	if err != nil {
-		return coam, err
-	}
-	return coam, nil
+	err := getDataAndUnmarshal(reqBody, &coam)
+	return coam, err
 }
 
 // GetLocalSpecialtiesMaterial : Return a LocalSpecialtiesMaterial struct
@@ -681,16 +648,8 @@ func GetLocalSpecialtiesMaterial() (Material, error) {
 	}
 
 	var lsm LocalSpecialtiesMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return lsm, err
-	}
-
-	err = json.Unmarshal(bytes, &lsm)
-	if err != nil {
-		return lsm, err
-	}
-	return lsm, nil
+	err := getDataAndUnmarshal(reqBody, &lsm)
+	return lsm, err
 }
 
 // GetTalentBookMaterial : Return a TalentBookMaterial struct
@@ -701,16 +660,8 @@ func GetTalentBookMaterial() (Material, error) {
 	}
 
 	var tbookm TalentBookMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return tbookm, err
-	}
-
-	err = json.Unmarshal(bytes, &tbookm)
-	if err != nil {
-		return tbookm, err
-	}
-	return tbookm, nil
+	err := getDataAndUnmarshal(reqBody, &tbookm)
+	return tbookm, err
 }
 
 // GetTalentBossMaterial : Return a TalentBossMaterial struct
@@ -721,16 +672,8 @@ func GetTalentBossMaterial() (Material, error) {
 	}
 
 	var tbossm TalentBossMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return tbossm, err
-	}
-
-	err = json.Unmarshal(bytes, &tbossm)
-	if err != nil {
-		return tbossm, err
-	}
-	return tbossm, nil
+	err := getDataAndUnmarshal(reqBody, &tbossm)
+	return tbossm, err
 }
 
 // GetWeaponAscensionMaterial : Return a WeaponAscensionMaterial struct
@@ -741,16 +684,8 @@ func GetWeaponAscensionMaterial() (Material, error) {
 	}
 
 	var wam WeaponAscensionMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return wam, err
-	}
-
-	err = json.Unmarshal(bytes, &wam)
-	if err != nil {
-		return wam, err
-	}
-	return wam, nil
+	err := getDataAndUnmarshal(reqBody, &wam)
+	return wam, err
 }
 
 // GetWeaponExperienceMaterial : Return a WeaponExperienceMaterial struct
@@ -761,14 +696,6 @@ func GetWeaponExperienceMaterial() (Material, error) {
 	}
 
 	var wem WeaponExperienceMaterial
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return wem, err
-	}
-
-	err = json.Unmarshal(bytes, &wem)
-	if err != nil {
-		return wem, err
-	}
-	return wem, nil
+	err := getDataAndUnmarshal(reqBody, &wem)
+	return wem, err
 }

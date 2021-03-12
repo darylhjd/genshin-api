@@ -32,12 +32,11 @@ func main() {
 }
 ```
 
-Refer to each DataType's corresponding file to see what helper functions are available.
-As a general rule, most DataTypes support getting the full list of item names as well as
-a particular DataEntry of that type.
+Refer to each DataType's corresponding file to see what helper functions are available. As a general rule, most
+DataTypes support getting the full list of item names as well as a particular DataEntry of that type.
 
-This library provides a wildcard function, `GetCustomBody`, for your own requests. You can find
-this function in `api.go`.
+This library provides a wildcard function, `GetCustomBody`, for your own requests. You can find this function
+in `api.go`.
 
 ```golang
 package main

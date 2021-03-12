@@ -11,6 +11,19 @@ type DataEntry interface {
 	EntryName() string
 }
 
+// getDataAndUnmarshal : Get required data from API and unmarshal to required struct.
+// The function accepts a pointer to a DataEntry struct (matptr).
+// If not supported, function will return an error.
+func getDataAndUnmarshal(req []string, matptr DataEntry) error {
+	bytes, err := GetCustomBody(req...)
+	if err != nil {
+		return err
+	}
+
+	err = json.Unmarshal(bytes, matptr)
+	return err
+}
+
 // DataTypes : Struct to hold list of data types provided by API.
 // This is a struct because the API returns a JSON containing the list, rather than just a list.
 type DataTypes struct {

@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	NationsDType = "nations"
@@ -35,14 +33,6 @@ func GetNation(name string) (Nation, error) {
 	}
 
 	var nation Nation
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return nation, err
-	}
-
-	err = json.Unmarshal(bytes, &nation)
-	if err != nil {
-		return nation, err
-	}
-	return nation, nil
+	err := getDataAndUnmarshal(reqBody, &nation)
+	return nation, err
 }

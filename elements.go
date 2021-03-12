@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	ElementsDType = "elements"
@@ -32,14 +30,6 @@ func GetElement(name string) (Element, error) {
 	}
 
 	var element Element
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return element, err
-	}
-
-	err = json.Unmarshal(bytes, &element)
-	if err != nil {
-		return element, err
-	}
-	return element, nil
+	err := getDataAndUnmarshal(reqBody, &element)
+	return element, err
 }

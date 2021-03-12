@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	CharactersDType = "characters"
@@ -59,14 +57,6 @@ func GetCharacter(name string) (Character, error) {
 	}
 
 	var character Character
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return character, err
-	}
-
-	err = json.Unmarshal(bytes, &character)
-	if err != nil {
-		return character, err
-	}
-	return character, nil
+	err := getDataAndUnmarshal(reqBody, &character)
+	return character, err
 }

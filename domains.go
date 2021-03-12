@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	DomainsDType = "domains"
@@ -68,14 +66,6 @@ func GetDomain(name string) (Domain, error) {
 	}
 
 	var domain Domain
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return domain, err
-	}
-
-	err = json.Unmarshal(bytes, &domain)
-	if err != nil {
-		return domain, err
-	}
-	return domain, nil
+	err := getDataAndUnmarshal(reqBody, &domain)
+	return domain, err
 }

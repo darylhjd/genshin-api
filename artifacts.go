@@ -1,7 +1,5 @@
 package genshinapi
 
-import "encoding/json"
-
 const (
 	// API DataType name
 	ArtifactsDType = "artifacts"
@@ -35,14 +33,6 @@ func GetArtifact(name string) (Artifact, error) {
 	}
 
 	var artifact Artifact
-	bytes, err := GetCustomBody(reqBody...)
-	if err != nil {
-		return artifact, err
-	}
-
-	err = json.Unmarshal(bytes, &artifact)
-	if err != nil {
-		return artifact, err
-	}
-	return artifact, nil
+	err := getDataAndUnmarshal(reqBody, &artifact)
+	return artifact, err
 }

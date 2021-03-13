@@ -8,6 +8,7 @@ const (
 )
 
 // --------- Structs for Domain
+
 type Domain struct {
 	Name                string               `json:"name"`
 	Type                string               `json:"type"`
@@ -53,6 +54,7 @@ func (d Domain) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetDomains : Get list of domain names.
 func GetDomains() ([]string, error) {
 	return GetDataTypeItemsList(DomainsDType)

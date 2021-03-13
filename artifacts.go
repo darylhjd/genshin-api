@@ -8,6 +8,8 @@ const (
 )
 
 // --------- Structs for Artifact
+
+// Artifact : Struct containing information on a Artifact.
 type Artifact struct {
 	Name           string `json:"name"`
 	MaxRarity      int    `json:"max_rarity"`
@@ -20,6 +22,7 @@ func (a Artifact) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetArtifacts : Get list of artifact names.
 func GetArtifacts() ([]string, error) {
 	return GetDataTypeItemsList(ArtifactsDType)

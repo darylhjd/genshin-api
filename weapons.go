@@ -8,6 +8,7 @@ const (
 )
 
 // --------- Structs for Weapon
+
 type Weapon struct {
 	Name        string `json:"name"`
 	Type        string `json:"type"`
@@ -24,6 +25,7 @@ func (w Weapon) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetWeapons : Get list of weapon names.
 func GetWeapons() ([]string, error) {
 	return GetDataTypeItemsList(WeaponsDType)

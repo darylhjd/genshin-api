@@ -9,6 +9,8 @@ const (
 )
 
 // --------- Structs for Character
+
+// Character : Struct containing information on a Character.
 type Character struct {
 	Name           string   `json:"name"`
 	Title          string   `json:"title"`
@@ -44,6 +46,7 @@ func (c Character) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetCharacters : Get list of character names.
 func GetCharacters() ([]string, error) {
 	return GetDataTypeItemsList(CharactersDType)

@@ -31,536 +31,241 @@ type Material interface {
 }
 
 // --------- Structs for Material
-// ---- BossMaterial
+
+type MaterialItem struct {
+	ID     string `json:"id"`
+	Name   string `json:"name"`
+	Rarity int    `json:"rarity"`
+}
+
+// BossMaterials : Struct containing material from each elemental boss.
+type BossMaterials struct {
+	Anemo   BossMaterial `json:"anemo"`
+	Cryo    BossMaterial `json:"cryo"`
+	Electro BossMaterial `json:"electro"`
+	Geo     BossMaterial `json:"geo"`
+	Hydro   BossMaterial `json:"hydro"`
+	Pyro    BossMaterial `json:"pyro"`
+}
+
 type BossMaterial struct {
-	Anemo   AnemoBossMaterial   `json:"anemo"`
-	Cryo    CryoBossMaterial    `json:"cryo"`
-	Electro ElectroBossMaterial `json:"electro"`
-	Geo     GeoBossMaterial     `json:"geo"`
-	Hydro   HydroBossMaterial   `json:"hydro"`
-	Pyro    PyroBossMaterial    `json:"pyro"`
-}
-
-type AnemoBossMaterial struct {
 	ID     string `json:"id"`
 	Name   string `json:"name"`
 	Source string `json:"source"`
 }
 
-type CryoBossMaterial struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Source string `json:"source"`
-}
-
-type ElectroBossMaterial struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Source string `json:"source"`
-}
-
-type GeoBossMaterial struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Source string `json:"source"`
-}
-
-type HydroBossMaterial struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Source string `json:"source"`
-}
-
-type PyroBossMaterial struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Source string `json:"source"`
-}
-
-func (bm BossMaterial) MaterialType() string {
+func (bm BossMaterials) MaterialType() string {
 	return BossMaterialType
 }
 
-func (bm BossMaterial) EntryName() string {
+func (bm BossMaterials) EntryName() string {
 	return BossMaterialType
 }
 
-// ---- CharacterAscensionMaterial
+// CharacterAscensionMaterials : Struct containing each elemental character ascension material.
+type CharacterAscensionMaterials struct {
+	Anemo    CharacterAscensionMaterial `json:"anemo"`
+	Cryo     CharacterAscensionMaterial `json:"cryo"`
+	Electro  CharacterAscensionMaterial `json:"electro"`
+	Geo      CharacterAscensionMaterial `json:"geo"`
+	Hydro    CharacterAscensionMaterial `json:"hydro"`
+	Pyro     CharacterAscensionMaterial `json:"pyro"`
+	Traveler CharacterAscensionMaterial `json:"traveler"`
+}
+
 type CharacterAscensionMaterial struct {
-	Anemo    AnemoCharacterAscensionMaterial    `json:"anemo"`
-	Cryo     CryoCharacterAscensionMaterial     `json:"cryo"`
-	Electro  ElectroCharacterAscensionMaterial  `json:"electro"`
-	Geo      GeoCharacterAscensionMaterial      `json:"geo"`
-	Hydro    HydroCharacterAscensionMaterial    `json:"hydro"`
-	Pyro     PyroCharacterAscensionMaterial     `json:"pyro"`
-	Traveler TravelerCharacterAscensionMaterial `json:"traveler"`
+	Sliver   GemPiece `json:"sliver"`
+	Fragment GemPiece `json:"fragment"`
+	Chunk    GemPiece `json:"chunk"`
+	Gemstone GemPiece `json:"gemstone"`
 }
 
-type Sliver struct {
+type GemPiece struct {
 	ID      string   `json:"id"`
 	Name    string   `json:"name"`
 	Sources []string `json:"sources"`
 	Rarity  int      `json:"rarity"`
 }
 
-type Fragment struct {
-	ID      string   `json:"id"`
-	Name    string   `json:"name"`
-	Sources []string `json:"sources"`
-	Rarity  int      `json:"rarity"`
-}
-
-type Chunk struct {
-	ID      string   `json:"id"`
-	Name    string   `json:"name"`
-	Sources []string `json:"sources"`
-	Rarity  int      `json:"rarity"`
-}
-
-type Gemstone struct {
-	ID      string   `json:"id"`
-	Name    string   `json:"name"`
-	Sources []string `json:"sources"`
-	Rarity  int      `json:"rarity"`
-}
-
-type AnemoCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type CryoCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type ElectroCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type GeoCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type HydroCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type PyroCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-type TravelerCharacterAscensionMaterial struct {
-	Sliver   Sliver   `json:"sliver"`
-	Fragment Fragment `json:"fragment"`
-	Chunk    Chunk    `json:"chunk"`
-	Gemstone Gemstone `json:"gemstone"`
-}
-
-func (cam CharacterAscensionMaterial) MaterialType() string {
+func (cam CharacterAscensionMaterials) MaterialType() string {
 	return CharacterAscensionMaterialType
 }
 
-func (cam CharacterAscensionMaterial) EntryName() string {
+func (cam CharacterAscensionMaterials) EntryName() string {
 	return CharacterAscensionMaterialType
 }
 
-// ---- CharacterExperienceMaterial
+// CharacterExperienceMaterials : Struct containing list of each CharacterExperienceMaterial.
+type CharacterExperienceMaterials struct {
+	Items []CharacterExperienceMaterial `json:"items"`
+}
+
 type CharacterExperienceMaterial struct {
-	Items []struct {
-		ID         string `json:"id"`
-		Name       string `json:"name"`
-		Experience int    `json:"experience"`
-		Rarity     int    `json:"rarity"`
-	} `json:"items"`
+	ID         string `json:"id"`
+	Name       string `json:"name"`
+	Experience int    `json:"experience"`
+	Rarity     int    `json:"rarity"`
 }
 
-func (cem CharacterExperienceMaterial) MaterialType() string {
+func (cem CharacterExperienceMaterials) MaterialType() string {
 	return CharacterExperienceMaterialType
 }
 
-func (cem CharacterExperienceMaterial) EntryName() string {
+func (cem CharacterExperienceMaterials) EntryName() string {
 	return CharacterExperienceMaterialType
 }
 
-// ---- CommonAscensionMaterial
+// CommonAscensionMaterials : Struct containing information on each common ascension material
+type CommonAscensionMaterials struct {
+	Slime                    CommonAscensionMaterial `json:"slime"`
+	HilichurlMasks           CommonAscensionMaterial `json:"hilichurl-masks"`
+	HilichurlArrowheads      CommonAscensionMaterial `json:"hilichurl-arrowheads"`
+	SamachurlScrolls         CommonAscensionMaterial `json:"samachurl-scrolls"`
+	TreasureHoarderInsignias CommonAscensionMaterial `json:"treasure-hoarder-insignias"`
+	FatuiInsignias           CommonAscensionMaterial `json:"fatui-insignias"`
+	WhopperflowerNectar      CommonAscensionMaterial `json:"whopperflower-nectar"`
+	HilichurlHorns           CommonAscensionMaterial `json:"hilichurl-horns"`
+	LeyLine                  CommonAscensionMaterial `json:"ley-line"`
+	BoneShards               CommonAscensionMaterial `json:"bone-shards"`
+	MistGrass                CommonAscensionMaterial `json:"mist-grass"`
+	FatuiKnives              CommonAscensionMaterial `json:"fatui-knives"`
+	ChaosParts               CommonAscensionMaterial `json:"chaos-parts"`
+}
+
 type CommonAscensionMaterial struct {
-	Slime                    Slime                    `json:"slime"`
-	HilichurlMasks           HilichurlMasks           `json:"hilichurl-masks"`
-	HilichurlArrowheads      HilichurlArrowheads      `json:"hilichurl-arrowheads"`
-	SamachurlScrolls         SamachurlScrolls         `json:"samachurl-scrolls"`
-	TreasureHoarderInsignias TreasureHoarderInsignias `json:"treasure-hoarder-insignias"`
-	FatuiInsignias           FatuiInsignias           `json:"fatui-insignias"`
-	WhopperflowerNectar      WhopperflowerNectar      `json:"whopperflower-nectar"`
-	HilichurlHorns           HilichurlHorns           `json:"hilichurl-horns"`
-	LeyLine                  LeyLine                  `json:"ley-line"`
-	BoneShards               BoneShards               `json:"bone-shards"`
-	MistGrass                MistGrass                `json:"mist-grass"`
-	FatuiKnives              FatuiKnives              `json:"fatui-knives"`
-	ChaosParts               ChaosParts               `json:"chaos-parts"`
+	Characters []string       `json:"characters"`
+	Items      []MaterialItem `json:"items"`
+	Sources    []string       `json:"sources"`
 }
 
-type CommonAscensionMaterialItems struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Rarity int    `json:"rarity"`
-}
-
-type Slime struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type HilichurlMasks struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type HilichurlArrowheads struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type SamachurlScrolls struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type TreasureHoarderInsignias struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type FatuiInsignias struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type WhopperflowerNectar struct {
-	Characters []string                       `json:"characters"`
-	Items      []CommonAscensionMaterialItems `json:"items"`
-	Sources    []string                       `json:"sources"`
-}
-
-type HilichurlHorns struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-type LeyLine struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-type BoneShards struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-type MistGrass struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-type FatuiKnives struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-type ChaosParts struct {
-	Weapons []string                       `json:"weapons"`
-	Items   []CommonAscensionMaterialItems `json:"items"`
-	Sources []string                       `json:"sources"`
-}
-
-func (coam CommonAscensionMaterial) MaterialType() string {
+func (coam CommonAscensionMaterials) MaterialType() string {
 	return CommonAscensionMaterialType
 }
 
-func (coam CommonAscensionMaterial) EntryName() string {
+func (coam CommonAscensionMaterials) EntryName() string {
 	return CommonAscensionMaterialType
 }
 
-// ---- LocalSpecialtiesMaterial
-type LocalSpecialtiesMaterial struct {
-	Mondstadt []MondstadtLocalSpecialty `json:"mondstadt"`
-	Liyue     []LiyueLocalSpecialty     `json:"liyue"`
+// LocalSpecialtiesMaterials : Struct containing list of LocalSpecialtyMaterial for each nation.
+type LocalSpecialtiesMaterials struct {
+	Mondstadt []LocalSpecialtyMaterial `json:"mondstadt"`
+	Liyue     []LocalSpecialtyMaterial `json:"liyue"`
 }
 
-type MondstadtLocalSpecialty struct {
+type LocalSpecialtyMaterial struct {
 	ID         string   `json:"id"`
 	Name       string   `json:"name"`
 	Characters []string `json:"characters"`
 }
 
-type LiyueLocalSpecialty struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-func (lsm LocalSpecialtiesMaterial) MaterialType() string {
+func (lsm LocalSpecialtiesMaterials) MaterialType() string {
 	return LocalSpecialtiesMaterialType
 }
 
-func (lsm LocalSpecialtiesMaterial) EntryName() string {
+func (lsm LocalSpecialtiesMaterials) EntryName() string {
 	return LocalSpecialtiesMaterialType
 }
 
-// ---- TalentBookMaterial
+// TalentBookMaterials : Struct containing each TalentBookMaterials
+type TalentBookMaterials struct {
+	Freedom    TalentBookMaterial `json:"freedom"`
+	Resistance TalentBookMaterial `json:"resistance"`
+	Ballad     TalentBookMaterial `json:"ballad"`
+	Prosperity TalentBookMaterial `json:"prosperity"`
+	Diligence  TalentBookMaterial `json:"diligence"`
+	Gold       TalentBookMaterial `json:"gold"`
+}
+
 type TalentBookMaterial struct {
-	Freedom    Freedom    `json:"freedom"`
-	Resistance Resistance `json:"resistance"`
-	Ballad     Ballad     `json:"ballad"`
-	Prosperity Prosperity `json:"prosperity"`
-	Diligence  Diligence  `json:"diligence"`
-	Gold       Gold       `json:"gold"`
+	Characters   []string       `json:"characters"`
+	Availability []string       `json:"availability"`
+	Source       string         `json:"source"`
+	Items        []MaterialItem `json:"items"`
 }
 
-type TalentBookMaterialItems struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Rarity int    `json:"rarity"`
-}
-
-type Freedom struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-type Resistance struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-type Ballad struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-type Prosperity struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-type Diligence struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-type Gold struct {
-	Characters   []string                  `json:"characters"`
-	Availability []string                  `json:"availability"`
-	Source       string                    `json:"source"`
-	Items        []TalentBookMaterialItems `json:"items"`
-}
-
-func (tbookm TalentBookMaterial) MaterialType() string {
+func (tbookm TalentBookMaterials) MaterialType() string {
 	return TalentBookMaterialType
 }
 
-func (tbookm TalentBookMaterial) EntryName() string {
+func (tbookm TalentBookMaterials) EntryName() string {
 	return TalentBookMaterialType
 }
 
-// ---- TalentBossMaterial
+// TalentBossMaterials : Sturct containing each TalentBossMaterial
+type TalentBossMaterials struct {
+	TailOfBoreas         TalentBossMaterial `json:"tail-of-boreas"`
+	RingOfBoreas         TalentBossMaterial `json:"ring-of-boreas"`
+	SpiritLocketOfBoreas TalentBossMaterial `json:"spirit-locket-of-boreas"`
+	DvalinsPlume         TalentBossMaterial `json:"dvalin's-plume"`
+	DvalinsClaw          TalentBossMaterial `json:"dvalin's-claw"`
+	DvalinsSigh          TalentBossMaterial `json:"dvalin's-sigh"`
+	TuskOfMonocerosCaeli TalentBossMaterial `json:"tusk-of-monoceros-caeli"`
+	ShardOfAFoulLegacy   TalentBossMaterial `json:"shard-of-a-foul-legacy"`
+	ShadowOfTheWarrior   TalentBossMaterial `json:"shadow-of-the-warrior"`
+}
+
 type TalentBossMaterial struct {
-	TailOfBoreas         TailOfBoreas         `json:"tail-of-boreas"`
-	RingOfBoreas         RingOfBoreas         `json:"ring-of-boreas"`
-	SpiritLocketOfBoreas SpiritLocketOfBoreas `json:"spirit-locket-of-boreas"`
-	DvalinsPlume         DvalinsPlume         `json:"dvalin's-plume"`
-	DvalinsClaw          DvalinsClaw          `json:"dvalin's-claw"`
-	DvalinsSigh          DvalinsSigh          `json:"dvalin's-sigh"`
-	TuskOfMonocerosCaeli TuskOfMonocerosCaeli `json:"tusk-of-monoceros-caeli"`
-	ShardOfAFoulLegacy   ShardOfAFoulLegacy   `json:"shard-of-a-foul-legacy"`
-	ShadowOfTheWarrior   ShadowOfTheWarrior   `json:"shadow-of-the-warrior"`
-}
-
-type TailOfBoreas struct {
 	ID         string   `json:"id"`
 	Name       string   `json:"name"`
 	Characters []string `json:"characters"`
 }
 
-type RingOfBoreas struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type SpiritLocketOfBoreas struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type DvalinsPlume struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type DvalinsClaw struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type DvalinsSigh struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type TuskOfMonocerosCaeli struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type ShardOfAFoulLegacy struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-type ShadowOfTheWarrior struct {
-	ID         string   `json:"id"`
-	Name       string   `json:"name"`
-	Characters []string `json:"characters"`
-}
-
-func (tbossm TalentBossMaterial) MaterialType() string {
+func (tbossm TalentBossMaterials) MaterialType() string {
 	return TalentBossMaterialType
 }
 
-func (tbossm TalentBossMaterial) EntryName() string {
+func (tbossm TalentBossMaterials) EntryName() string {
 	return TalentBossMaterialType
 }
 
-// ---- WeaponAscensionMaterial
+// WeaponAscensionMaterials : Struct containing each WeaponAscensionMaterial
+type WeaponAscensionMaterials struct {
+	Decarabian   WeaponAscensionMaterial `json:"decarabian"`
+	Boreal       WeaponAscensionMaterial `json:"boreal"`
+	Dandelion    WeaponAscensionMaterial `json:"dandelion"`
+	Guyun        WeaponAscensionMaterial `json:"guyun"`
+	Elixir       WeaponAscensionMaterial `json:"elixir"`
+	Aerosiderite WeaponAscensionMaterial `json:"aerosiderite"`
+}
+
 type WeaponAscensionMaterial struct {
-	Decarabian   Decarabian   `json:"decarabian"`
-	Boreal       Boreal       `json:"boreal"`
-	Dandelion    Dandelion    `json:"dandelion"`
-	Guyun        Guyun        `json:"guyun"`
-	Elixir       Elixir       `json:"elixir"`
-	Aerosiderite Aerosiderite `json:"aerosiderite"`
+	Weapons      []string       `json:"weapons"`
+	Availability []string       `json:"availability"`
+	Source       string         `json:"source"`
+	Items        []MaterialItem `json:"items"`
 }
 
-type WeaponAscensionMaterialItems struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Rarity int    `json:"rarity"`
-}
-
-type Decarabian struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-type Boreal struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-type Dandelion struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-type Guyun struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-type Elixir struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-type Aerosiderite struct {
-	Weapons      []string                       `json:"weapons"`
-	Availability []string                       `json:"availability"`
-	Source       string                         `json:"source"`
-	Items        []WeaponAscensionMaterialItems `json:"items"`
-}
-
-func (wam WeaponAscensionMaterial) MaterialType() string {
+func (wam WeaponAscensionMaterials) MaterialType() string {
 	return WeaponAscensionMaterialType
 }
 
-func (wam WeaponAscensionMaterial) EntryName() string {
+func (wam WeaponAscensionMaterials) EntryName() string {
 	return WeaponAscensionMaterialType
 }
 
-// ---- WeaponExperienceMaterial
+// WeaponExperienceMaterials : Struct containing list of WeaponExperienceMaterial
+type WeaponExperienceMaterials struct {
+	Items []WeaponExperienceMaterial `json:"items"`
+}
+
 type WeaponExperienceMaterial struct {
-	Items []struct {
-		ID         string   `json:"id"`
-		Name       string   `json:"name"`
-		Experience int      `json:"experience"`
-		Rarity     int      `json:"rarity"`
-		Source     []string `json:"source"`
-	} `json:"items"`
+	ID         string   `json:"id"`
+	Name       string   `json:"name"`
+	Experience int      `json:"experience"`
+	Rarity     int      `json:"rarity"`
+	Source     []string `json:"source"`
 }
 
-func (wem WeaponExperienceMaterial) MaterialType() string {
+func (wem WeaponExperienceMaterials) MaterialType() string {
 	return WeaponExperienceMaterialType
 }
 
-func (wem WeaponExperienceMaterial) EntryName() string {
+func (wem WeaponExperienceMaterials) EntryName() string {
 	return WeaponExperienceMaterialType
 }
 
 // --------- Helper functions
+
 // GetMaterials : Get list of material names.
 func GetMaterials() ([]string, error) {
 	return GetDataTypeItemsList(MaterialsDType)
@@ -592,110 +297,110 @@ func GetMaterial(mname string) (Material, error) {
 	return fn()
 }
 
-// GetBossMaterial : Return a BossMaterial struct.
+// GetBossMaterial : Return a BossMaterials struct.
 func GetBossMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		BossMaterialType,
 	}
 
-	var bm BossMaterial
+	var bm BossMaterials
 	err := getDataAndUnmarshal(reqBody, &bm)
 	return bm, err
 }
 
-// GetCharacterAscensionMaterial : Return a CharacterAscensionMaterial struct.
+// GetCharacterAscensionMaterial : Return a CharacterAscensionMaterials struct.
 func GetCharacterAscensionMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		CharacterAscensionMaterialType,
 	}
 
-	var cam CharacterAscensionMaterial
+	var cam CharacterAscensionMaterials
 	err := getDataAndUnmarshal(reqBody, &cam)
 	return cam, err
 }
 
-// GetCharacterExperienceMaterial : Return a CharacterExperienceMaterial struct.
+// GetCharacterExperienceMaterial : Return a CharacterExperienceMaterials struct.
 func GetCharacterExperienceMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		CharacterExperienceMaterialType,
 	}
 
-	var cem CharacterExperienceMaterial
+	var cem CharacterExperienceMaterials
 	err := getDataAndUnmarshal(reqBody, &cem)
 	return cem, err
 }
 
-// GetCommonAscensionMaterial : Return a CommonAscensionMaterial struct
+// GetCommonAscensionMaterial : Return a CommonAscensionMaterials struct
 func GetCommonAscensionMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		CommonAscensionMaterialType,
 	}
 
-	var coam CommonAscensionMaterial
+	var coam CommonAscensionMaterials
 	err := getDataAndUnmarshal(reqBody, &coam)
 	return coam, err
 }
 
-// GetLocalSpecialtiesMaterial : Return a LocalSpecialtiesMaterial struct
+// GetLocalSpecialtiesMaterial : Return a LocalSpecialtiesMaterials struct
 func GetLocalSpecialtiesMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		LocalSpecialtiesMaterialType,
 	}
 
-	var lsm LocalSpecialtiesMaterial
+	var lsm LocalSpecialtiesMaterials
 	err := getDataAndUnmarshal(reqBody, &lsm)
 	return lsm, err
 }
 
-// GetTalentBookMaterial : Return a TalentBookMaterial struct
+// GetTalentBookMaterial : Return a TalentBookMaterials struct
 func GetTalentBookMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		TalentBookMaterialType,
 	}
 
-	var tbookm TalentBookMaterial
+	var tbookm TalentBookMaterials
 	err := getDataAndUnmarshal(reqBody, &tbookm)
 	return tbookm, err
 }
 
-// GetTalentBossMaterial : Return a TalentBossMaterial struct
+// GetTalentBossMaterial : Return a TalentBossMaterials struct
 func GetTalentBossMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		TalentBossMaterialType,
 	}
 
-	var tbossm TalentBossMaterial
+	var tbossm TalentBossMaterials
 	err := getDataAndUnmarshal(reqBody, &tbossm)
 	return tbossm, err
 }
 
-// GetWeaponAscensionMaterial : Return a WeaponAscensionMaterial struct
+// GetWeaponAscensionMaterial : Return a WeaponAscensionMaterials struct
 func GetWeaponAscensionMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		WeaponAscensionMaterialType,
 	}
 
-	var wam WeaponAscensionMaterial
+	var wam WeaponAscensionMaterials
 	err := getDataAndUnmarshal(reqBody, &wam)
 	return wam, err
 }
 
-// GetWeaponExperienceMaterial : Return a WeaponExperienceMaterial struct
+// GetWeaponExperienceMaterial : Return a WeaponExperienceMaterials struct
 func GetWeaponExperienceMaterial() (Material, error) {
 	reqBody := []string{
 		MaterialsDType,
 		WeaponExperienceMaterialType,
 	}
 
-	var wem WeaponExperienceMaterial
+	var wem WeaponExperienceMaterials
 	err := getDataAndUnmarshal(reqBody, &wem)
 	return wem, err
 }

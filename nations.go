@@ -8,6 +8,7 @@ const (
 )
 
 // --------- Structs for Nation
+
 type Nation struct {
 	Name              string `json:"name"`
 	Element           string `json:"element"`
@@ -20,6 +21,7 @@ func (n Nation) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetNations : Get list of nation names.
 func GetNations() ([]string, error) {
 	return GetDataTypeItemsList(NationsDType)

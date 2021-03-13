@@ -8,6 +8,7 @@ const (
 )
 
 // --------- Structs for Element
+
 type Element struct {
 	Name string `json:"name"`
 }
@@ -17,6 +18,7 @@ func (e Element) EntryName() string {
 }
 
 // --------- Helper functions
+
 // GetElements : Get list of element names.
 func GetElements() ([]string, error) {
 	return GetDataTypeItemsList(ElementsDType)

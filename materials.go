@@ -405,9 +405,9 @@ type TalentBossMaterial struct {
 	TailOfBoreas         TailOfBoreas         `json:"tail-of-boreas"`
 	RingOfBoreas         RingOfBoreas         `json:"ring-of-boreas"`
 	SpiritLocketOfBoreas SpiritLocketOfBoreas `json:"spirit-locket-of-boreas"`
-	DvalinSPlume         DvalinsPlume         `json:"dvalin's-plume"`
-	DvalinSClaw          DvalinsClaw          `json:"dvalin's-claw"`
-	DvalinSSigh          DvalinsSigh          `json:"dvalin's-sigh"`
+	DvalinsPlume         DvalinsPlume         `json:"dvalin's-plume"`
+	DvalinsClaw          DvalinsClaw          `json:"dvalin's-claw"`
+	DvalinsSigh          DvalinsSigh          `json:"dvalin's-sigh"`
 	TuskOfMonocerosCaeli TuskOfMonocerosCaeli `json:"tusk-of-monoceros-caeli"`
 	ShardOfAFoulLegacy   ShardOfAFoulLegacy   `json:"shard-of-a-foul-legacy"`
 	ShadowOfTheWarrior   ShadowOfTheWarrior   `json:"shadow-of-the-warrior"`

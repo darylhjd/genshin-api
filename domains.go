@@ -21,9 +21,9 @@ type Domain struct {
 }
 
 type RequirementLevel struct {
-	Level            string `json:"level"`
-	AdventureRank    string `json:"adventureRank"`
-	RecommendedLevel string `json:"recommendedLevel"`
+	Level            int    `json:"level"`
+	AdventureRank    int    `json:"adventureRank"`
+	RecommendedLevel int    `json:"recommendedLevel"`
 	LeyLineDisorder  string `json:"leyLineDisorder"`
 }
 
@@ -37,16 +37,17 @@ type Reward struct {
 }
 
 type RewardDetail struct {
-	Level                   string `json:"level"`
-	AdventureExperience     string `json:"adventureExperience"`
-	CompanionshipExperience string `json:"companionshipExperience"`
-	Mora                    string `json:"mora"`
+	Level                   int    `json:"level"`
+	AdventureExperience     int    `json:"adventureExperience"`
+	CompanionshipExperience int    `json:"companionshipExperience"`
+	Mora                    int    `json:"mora"`
 	Drops                   []Drop `json:"drops"`
 }
 
 type Drop struct {
-	Name string `json:"name"`
-	Rate string `json:"rate"`
+	Name    string `json:"name"`
+	DropMin int    `json:"drop_min"`
+	DropMax int    `json:"drop_max"`
 }
 
 func (d Domain) EntryName() string {

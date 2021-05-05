@@ -33,7 +33,9 @@ type Talent struct {
 	Name        string         `json:"name"`
 	Unlock      string         `json:"unlock"`
 	Description string         `json:"description"`
-	Upgrades    []UpgradeLevel `json:"upgrades,omitempty"`
+	Upgrades    []UpgradeLevel `json:"upgrades"`
+	SkillType   string         `json:"type"`
+	Level       int            `json:"level"`
 }
 
 type UpgradeLevel struct {

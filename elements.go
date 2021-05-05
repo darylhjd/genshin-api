@@ -11,6 +11,7 @@ const (
 
 type Element struct {
 	Name string `json:"name"`
+	Key  string `json:"key"`
 }
 
 func (e Element) EntryName() string {

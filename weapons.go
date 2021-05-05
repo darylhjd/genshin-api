@@ -13,7 +13,7 @@ type Weapon struct {
 	Name        string `json:"name"`
 	Type        string `json:"type"`
 	Rarity      int    `json:"rarity"`
-	BaseAttack  string `json:"baseAttack"`
+	BaseAttack  int    `json:"baseAttack"`
 	SubStat     string `json:"subStat"`
 	PassiveName string `json:"passiveName"`
 	PassiveDesc string `json:"passiveDesc"`

@@ -1,15 +1,11 @@
 package genshinapi
 
 const (
-	// API DataType name
 	ArtifactsDType = "artifacts"
-	// Assets
+
 	ArtifactPhoto = "flower-of-life"
 )
 
-// --------- Structs for Artifact
-
-// Artifact : Struct containing information on a Artifact.
 type Artifact struct {
 	Name           string `json:"name"`
 	MaxRarity      int    `json:"max_rarity"`
@@ -20,8 +16,6 @@ type Artifact struct {
 func (a Artifact) EntryName() string {
 	return a.Name
 }
-
-// --------- Helper functions
 
 // GetArtifacts : Get list of artifact names.
 func GetArtifacts() ([]string, error) {

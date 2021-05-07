@@ -1,13 +1,8 @@
 package genshinapi
 
 const (
-	// API DataType name
 	DomainsDType = "domains"
-	// Assets
-	// -- There are no assets for Domains
 )
-
-// --------- Structs for Domain
 
 type Domain struct {
 	Name                string               `json:"name"`
@@ -53,8 +48,6 @@ type Drop struct {
 func (d Domain) EntryName() string {
 	return d.Name
 }
-
-// --------- Helper functions
 
 // GetDomains : Get list of domain names.
 func GetDomains() ([]string, error) {

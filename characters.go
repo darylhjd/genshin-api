@@ -1,16 +1,12 @@
 package genshinapi
 
 const (
-	// API DataType name
 	CharactersDType = "characters"
-	// Assets
+
 	CharacterIcon     = "icon"
 	CharacterPortrait = "portrait"
 )
 
-// --------- Structs for Character
-
-// Character : Struct containing information on a Character.
 type Character struct {
 	Name           string   `json:"name"`
 	Title          string   `json:"title"`
@@ -46,8 +42,6 @@ type UpgradeLevel struct {
 func (c Character) EntryName() string {
 	return c.Name
 }
-
-// --------- Helper functions
 
 // GetCharacters : Get list of character names.
 func GetCharacters() ([]string, error) {

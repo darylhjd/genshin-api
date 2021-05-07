@@ -8,9 +8,7 @@ To install, do `go get -u github.com/darylhjd/genshin-api`.
 
 API can be found [here](https://api.genshin.dev/). GitHub repo for API is [here](https://github.com/genshindev/api).
 
-Feel free to contribute to this project!
-
-## Examples
+## Usage
 
 ```golang
 package main
@@ -69,3 +67,7 @@ func main() {
 	_ = imagedata
 }
 ```
+
+## Contributing
+
+Feel free to contribute to this project!

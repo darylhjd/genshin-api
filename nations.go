@@ -1,13 +1,8 @@
 package genshinapi
 
 const (
-	// API DataType name
 	NationsDType = "nations"
-	// Assets
-	// -- There are no assets for Nations
 )
-
-// --------- Structs for Nation
 
 type Nation struct {
 	Name              string `json:"name"`
@@ -19,8 +14,6 @@ type Nation struct {
 func (n Nation) EntryName() string {
 	return n.Name
 }
-
-// --------- Helper functions
 
 // GetNations : Get list of nation names.
 func GetNations() ([]string, error) {

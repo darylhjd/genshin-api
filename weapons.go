@@ -1,13 +1,10 @@
 package genshinapi
 
 const (
-	// API DataType name
 	WeaponsDType = "weapons"
-	// Assets
+
 	WeaponIcon = "icon"
 )
-
-// --------- Structs for Weapon
 
 type Weapon struct {
 	Name        string `json:"name"`
@@ -23,8 +20,6 @@ type Weapon struct {
 func (w Weapon) EntryName() string {
 	return w.Name
 }
-
-// --------- Helper functions
 
 // GetWeapons : Get list of weapon names.
 func GetWeapons() ([]string, error) {

@@ -1,13 +1,10 @@
 package genshinapi
 
 const (
-	// API DataType name
 	ElementsDType = "elements"
-	// Assets
+
 	ElementIcon = "icon"
 )
-
-// --------- Structs for Element
 
 type Element struct {
 	Name string `json:"name"`
@@ -17,8 +14,6 @@ type Element struct {
 func (e Element) EntryName() string {
 	return e.Name
 }
-
-// --------- Helper functions
 
 // GetElements : Get list of element names.
 func GetElements() ([]string, error) {
